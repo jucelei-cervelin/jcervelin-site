@@ -1,0 +1,236 @@
+/* Subpáginas: usam os tokens, botões, cabeçalho e rodapé de estilo.css. Aqui entra só o que é próprio delas. */
+body.interna { background: var(--papel); }
+
+/* Abertura escura, com a mesma grade e o mesmo brilho azul do contato da home */
+.abertura {
+  position: relative;
+  z-index: 1;
+  padding: 158px var(--gutter) 0;
+  color: var(--luz);
+  background-color: var(--preto);
+  background-image:
+    radial-gradient(ellipse 52% 80% at 78% 30%, rgba(15, 103, 159, .34), transparent 70%),
+    linear-gradient(rgba(107, 188, 240, .06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(107, 188, 240, .06) 1px, transparent 1px);
+  background-size: auto, 56px 56px, 56px 56px;
+}
+.abertura:not(:has(.resposta)) { padding-bottom: 84px; }
+.abertura-miolo { max-width: 860px; margin: 0 auto; }
+
+.menu-interno { display: none; }
+
+.migalhas { font-family: var(--sub); font-size: .76rem; font-weight: 500; color: var(--luz-suave); }
+.migalhas a { color: var(--azul-vidro); text-decoration: none; }
+.migalhas a:hover { text-decoration: underline; }
+
+.abertura h1 { margin-top: 20px; max-width: 22ch; color: #fff; font-size: clamp(2rem, min(3.8vw, 8vh), 3.2rem); text-shadow: 0 2px 30px rgba(0, 0, 0, .55); }
+.inteiro { white-space: nowrap; }
+.abertura h1 + p:not(.meta):not(.rascunho) { margin-top: 22px; max-width: 54ch; font-family: var(--sub); font-size: 1rem; color: var(--luz-suave); }
+.meta { margin-top: 18px; font-family: var(--sub); font-size: .8rem; color: var(--luz-suave); }
+.rascunho {
+  margin-top: 18px;
+  padding: 9px 13px;
+  font-family: var(--sub);
+  font-size: .8rem;
+  color: var(--luz);
+  background: rgba(107, 188, 240, .12);
+  border: 1px solid rgba(107, 188, 240, .4);
+  border-radius: var(--r-botao);
+}
+
+/* Caixa de vidro: mesma da cena, avançando sobre a área clara para dar profundidade */
+.resposta {
+  position: relative;
+  z-index: 2;
+  margin-top: 40px;
+  margin-bottom: -68px;
+  padding: 23px 24px 25px;
+  background: var(--vidro);
+  border: 1px solid var(--vidro-borda);
+  border-radius: var(--r-painel);
+  box-shadow: var(--sombra-vidro);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+}
+.resposta .rotulo { margin-bottom: 11px; font-family: var(--sub); font-size: .72rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--azul-vidro); }
+.resposta p:not(.rotulo) { font-family: var(--sub); font-size: .95rem; line-height: 1.7; color: var(--luz); }
+
+/* Área de leitura */
+.leitura {
+  padding: 148px var(--gutter) var(--respiro);
+  background:
+    radial-gradient(ellipse 42% 30% at 6% 22%, rgba(15, 103, 159, .13), transparent 70%),
+    radial-gradient(ellipse 38% 30% at 96% 72%, rgba(15, 103, 159, .12), transparent 70%),
+    var(--papel);
+}
+.abertura:not(:has(.resposta)) + .leitura { padding-top: 72px; }
+.leitura-miolo { max-width: 860px; margin: 0 auto; }
+
+.leitura h2 { margin-top: 72px; max-width: none; color: var(--tinta); font-size: clamp(1.4rem, 2.1vw, 1.85rem); }
+.leitura-miolo > h2:first-child, .leitura-miolo > .regioes:first-child { margin-top: 0; }
+.leitura p { margin-top: 16px; max-width: 70ch; color: var(--tinta-2); }
+.leitura a { color: var(--azul); font-weight: 600; }
+
+.leitura ul:not(.cartoes), .leitura ol {
+  margin-top: 22px;
+  padding: 8px 24px;
+  background: rgba(255, 255, 255, .86);
+  border: 1px solid #fff;
+  border-radius: var(--r-cartao);
+  box-shadow: var(--sombra-forte);
+}
+.leitura ol { padding-left: 44px; list-style: decimal; }
+.leitura li { padding: 12px 0; color: var(--tinta); border-top: 1px solid rgba(13, 21, 32, .09); }
+.leitura li:first-child { border-top: 0; }
+.leitura ol li::marker { font-family: var(--sub); font-weight: 600; color: var(--azul); }
+
+/* Tabela: mesma da dobra de operações */
+.leitura table {
+  width: 100%;
+  margin-top: 22px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: var(--r-cartao);
+  background: linear-gradient(160deg, #0f4670, #0a2c47);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .14) inset, 0 28px 50px -14px rgba(13, 21, 32, .55);
+}
+.leitura th, .leitura td { padding: 14px 20px; text-align: left; vertical-align: top; font-size: .92rem; font-weight: 400; border-top: 1px solid rgba(255, 255, 255, .14); }
+.leitura thead th { border-top: 0; font-family: var(--sub); font-size: .76rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--azul-vidro); }
+.leitura tbody th { font-weight: 700; color: #fff; }
+.leitura td { font-family: var(--sub); font-size: .85rem; color: var(--azul-vidro); }
+
+/* Perguntas frequentes */
+.leitura details {
+  margin-top: 14px;
+  padding: 15px 22px;
+  background: rgba(255, 255, 255, .86);
+  border: 1px solid #fff;
+  border-radius: var(--r-cartao);
+  box-shadow: var(--sombra-forte);
+}
+.leitura summary { font-family: var(--sub); font-size: .95rem; font-weight: 500; color: var(--tinta); cursor: pointer; }
+.leitura details p { margin-top: 10px; font-size: .95rem; }
+
+/* Chamada: mesma do contato da home */
+.cta {
+  margin-top: 80px;
+  padding: 31px 32px 34px;
+  color: #fff;
+  background-color: var(--preto);
+  background-image:
+    radial-gradient(ellipse 60% 110% at 15% 20%, rgba(15, 103, 159, .4), transparent 70%),
+    linear-gradient(rgba(107, 188, 240, .06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(107, 188, 240, .06) 1px, transparent 1px);
+  background-size: auto, 40px 40px, 40px 40px;
+  border-radius: var(--r-painel);
+  box-shadow: 0 28px 50px -14px rgba(13, 21, 32, .6);
+}
+.cta h2 { margin-top: 0; color: #fff; }
+.leitura .cta p { color: var(--luz-suave); font-family: var(--sub); font-size: .95rem; }
+.leitura .cta .botao { margin-top: 24px; color: #fff; font-weight: 500; }
+
+/* Cartões de links */
+.cartoes { margin-top: 22px; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+.cartoes.lista { grid-template-columns: 1fr; }
+.cartoes a {
+  display: block;
+  height: 100%;
+  padding: 23px 24px 25px;
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--tinta);
+  background: rgba(255, 255, 255, .86);
+  border: 1px solid #fff;
+  border-radius: var(--r-cartao);
+  box-shadow: var(--sombra-forte);
+  transition: transform .2s;
+}
+.cartoes a:hover { transform: translateY(-3px); }
+.cartoes strong { display: block; font-family: var(--sub); font-size: 1.02rem; font-weight: 600; line-height: 1.4; }
+.cartoes span { display: block; margin-top: 8px; font-size: .94rem; color: var(--tinta-2); }
+.cartoes time { display: block; margin-top: 10px; font-family: var(--sub); font-size: .74rem; font-weight: 500; color: var(--azul); }
+
+/* Regiões atendidas */
+.regioes { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.regioes section {
+  padding: 23px 24px 25px;
+  background: rgba(255, 255, 255, .86);
+  border: 1px solid #fff;
+  border-radius: var(--r-cartao);
+  box-shadow: var(--sombra-forte);
+}
+.leitura .regioes h2 { margin-top: 0; font-family: var(--sub); font-size: 1rem; font-weight: 600; letter-spacing: -.005em; }
+.leitura .regioes ul { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; padding: 0; background: none; border: 0; border-radius: 0; box-shadow: none; }
+.leitura .regioes li { padding: 5px 12px; font-family: var(--sub); font-size: .84rem; color: var(--azul); background: var(--papel-2); border: 0; border-radius: 6px; }
+
+@media (prefers-reduced-transparency: reduce) {
+  .resposta { background: #0d141d; -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+
+@media (max-width: 1180px) {
+  .menu-interno {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 22px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+  .menu-interno::-webkit-scrollbar { display: none; }
+  .menu-interno a {
+    flex: none;
+    padding: 6px 11px;
+    font-family: var(--sub);
+    font-size: .76rem;
+    font-weight: 500;
+    color: var(--luz-suave);
+    text-decoration: none;
+    background: var(--vidro-claro);
+    border: 1px solid var(--vidro-borda);
+    border-radius: 6px;
+  }
+  .menu-interno a[aria-current="page"] { color: #fff; background: var(--azul); border-color: rgba(255, 255, 255, .3); }
+}
+
+@media (max-width: 860px) {
+  .abertura { padding-top: 90px; }
+  .abertura:not(:has(.resposta)) { padding-bottom: 44px; }
+  .menu-interno { margin-bottom: 16px; }
+  .migalhas { font-size: .72rem; }
+  .abertura h1 { margin-top: 12px; font-size: clamp(1.7rem, 7.4vw, 2.05rem); }
+  .abertura h1 + p:not(.meta):not(.rascunho) { margin-top: 12px; font-size: .84rem; line-height: 1.6; }
+  .meta { margin-top: 10px; font-size: .74rem; }
+  .rascunho { margin-top: 12px; padding: 7px 10px; font-size: .74rem; border-radius: 6px; }
+  .resposta { margin-top: 22px; margin-bottom: -44px; padding: 11px 13px 13px; border-radius: 8px; }
+  .resposta .rotulo { margin-bottom: 5px; font-size: .7rem; letter-spacing: .14em; }
+  .resposta p:not(.rotulo) { font-size: .84rem; line-height: 1.6; }
+  .leitura { padding-top: 88px; }
+  .abertura:not(:has(.resposta)) + .leitura { padding-top: 44px; }
+  .leitura h2 { margin-top: 44px; font-size: 1.22rem; }
+  .leitura p { margin-top: 12px; }
+  .leitura ul:not(.cartoes), .leitura ol { margin-top: 14px; padding: 4px 15px; border-radius: 9px; }
+  .leitura ol { padding-left: 34px; }
+  .leitura li { padding: 9px 0; font-size: .9rem; }
+  .leitura table { margin-top: 14px; border-radius: 9px; }
+  .leitura th, .leitura td { padding: 9px 10px; font-size: .78rem; }
+  .leitura thead th { font-size: .7rem; letter-spacing: .04em; }
+  .leitura details { margin-top: 10px; padding: 12px 14px; border-radius: 9px; }
+  .leitura summary { font-size: .86rem; }
+  .leitura details p { font-size: .86rem; }
+  .cta { margin-top: 48px; padding: 18px 16px 20px; border-radius: 9px; }
+  .leitura .cta p { font-size: .84rem; }
+  .leitura .cta .botao { margin-top: 16px; }
+  .cartoes { margin-top: 14px; gap: 12px; }
+  .cartoes a { padding: 14px 15px 16px; border-radius: 9px; }
+  .cartoes strong { font-size: .94rem; }
+  .cartoes span { margin-top: 5px; font-size: .86rem; }
+  .regioes { grid-template-columns: 1fr; gap: 12px; }
+  .regioes section { padding: 14px 15px 16px; border-radius: 9px; }
+  .leitura .regioes ul { margin-top: 10px; gap: 6px; }
+  .leitura .regioes li { padding: 4px 10px; font-size: .78rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cartoes a { transition: none; }
+}
